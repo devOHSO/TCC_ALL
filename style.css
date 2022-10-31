@@ -1,0 +1,147 @@
+body{
+    background-image: url('Images/background.png');
+    background-attachment: fixed;
+    background-size: cover;
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    
+    margin: 0px;
+
+}
+.divmaxhei{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    
+    height: 98.4vh;
+    width: 100%;
+
+}
+.smallbackground{
+    background-color: rgba(0, 0, 0, 0.75);
+    color: white;
+    text-align: center;
+    padding: 40px;
+    font-family: system-ui;
+    width: 30%;
+    border-radius: 10px;
+    border: 2px outset rgb(80, 80, 80);
+}
+.mediumbackground{
+    background-color: rgba(0, 0, 0, 0.75);
+    color: white;
+    text-align: center;
+    padding: 40px;
+    font-family: system-ui;
+    width: 70%;
+    border-radius: 10px;
+    border: 2px outset rgb(80, 80, 80);
+    margin-right: 15%;
+    margin-top: 30px;
+
+}
+div.header{
+    background-color: black;
+    margin: 0px;
+    color: aliceblue;
+    width: 100%;
+    font-family: system-ui;
+    position: sticky;
+    top: 0;
+    z-index: 51;
+}
+div.petgrid{
+    background-color: rgb(51, 51, 51);
+    margin: 0px;
+    color: aliceblue;
+    width: 10%;
+    font-family: system-ui;
+    position: sticky;
+    top: 0;
+    margin-right: 5%;
+    z-index: 50;
+    height: 100vh;
+    
+}
+form.pet_form{
+    width: 100%;
+    display: flex;  
+    justify-content: center;
+}
+h1{
+    font-size: 50px;
+    margin: 0;
+}
+.inputs{
+    background-color: rgba(255, 255, 255, 0.5);
+    height: 20px;
+    width: 180px;
+    border-radius: 5px;
+    text-align: center;
+    font-family: monospace;
+       
+}
+.submits{
+    background-color: cornflowerblue;
+    height: 30px;
+    width: 100px;
+    border-radius: 5px;
+    border: 2px outset cornflowerblue;
+    font-size: 19px;
+}
+.divflexc{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px;
+    margin: 0px;
+    width: 100%;
+}
+.divflexr{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 0px;
+    margin: 0px;
+    width: 100%;
+}
+.logimg{
+    height: 50px;
+    margin: 10px;
+}
+.pet_btn{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 0px;
+    background-color: rgba(0, 0, 0, 0);
+    color: aliceblue;
+    font-family: system-ui;
+}
+.pet_img{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin: 10px;
+    background-size: cover;
+}
+label{
+    font-size: 20px;
+}
+
+h3, h4{
+    margin: 0px;
+}
+div.bar{
+    background-color: black;
+    width: 100%;
+    height: 5px;
+    border-radius: 2px;
+}
+#numpost{
+    display: none;
+}

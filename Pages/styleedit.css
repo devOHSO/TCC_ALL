@@ -1,0 +1,176 @@
+
+body { 
+    background-image: url('../Images/background.png');
+    background-attachment: fixed;
+    background-size: cover;
+    }
+    
+.header { 
+    background: black;
+
+    position: fixed;
+    height: 80px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between; 
+    
+    width: 100%;
+    top: 0;
+
+    left: 0;
+
+    
+}
+
+.header .headerTitle { 
+    color: #ddd; 
+    text-align: center;
+    font-family: system-ui;
+    line-height: 70px; 
+    margin-left: 20px; 
+
+}
+
+.butlogo{
+    background-color: black;
+    position: right;
+
+}
+.texto{
+    color: white;
+    position: absolute;
+    width: 200px;
+    height: 75px;
+    left: 720px;
+    top: 30px;
+    font-family: system-ui; 
+    font-size: 18px;
+}
+
+.butvoltar{
+    background-color: black;
+    position: absolute;
+    width: 30px;
+    height: 60px;
+    left: 1350px;
+    top: 7px;
+
+
+}
+.icon5{
+    position: left;
+
+
+}
+.buthome{
+    background-color: black;
+    position: absolute;
+    width: 30px;
+    height: 60px;
+    left: 1280px;
+    top: 7px;
+
+
+}
+.icon5{
+    position: left;
+
+
+}
+
+
+.smallbackground { 
+    background-color: rgba(0, 0, 0, 0.75);
+    color: white;
+    
+    
+    margin: 10%; 
+    width: 80%;
+    height: 500px; 
+    border: 1px solid black; 
+    text-align: center; 
+    font-family: system-ui; 
+    border-radius: 1em;
+}
+
+.name{
+    position: absolute;
+    left: 450px;
+    top: 240px;
+    width: 15%;
+    height: 35px; 
+    border: 1px solid rgba(255, 255, 255, 0); 
+    text-align: center; 
+    font-family: system-ui; 
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.708);
+    font-size: 20px;
+
+}
+
+.nickname{
+    position: absolute;
+    left: 450px;
+    top: 300px;
+    width: 15%;
+    height: 35px;
+    border: 1px solid rgba(255, 255, 255, 0); 
+    background-color: rgba(255, 255, 255, 0.708);
+    text-align: center; 
+    font-family: system-ui; 
+    border-radius: 15px;
+          
+    font-size: 20px;
+}
+
+.submits{
+    position: absolute;
+    top: 450px;
+    color: rgb(0, 0, 0);
+    width: 15%;
+    height: 35px;
+    border: 1px solid black;  
+    border-radius: 1em;
+    
+}
+
+
+
+.input_user{
+    position: absolute;
+    width: 135px;
+    height: 135px;
+    left: 255px;
+    top: 365px;
+
+    border-radius: 8px;
+
+}
+.img_user{
+    border-radius: 322.5px;
+
+}
+
+
+.input_header{
+    position: absolute;
+    background-color: rgb(220, 220, 220);
+    color: rgb(0, 0, 0);
+    left: 1000px;
+    top: 300px;
+    border-radius: 322.5px;
+}
+.img_header{
+    background-color: rgba(0, 0, 0, 0.144);
+}
+
+.perfil{
+    position: absolute;
+    width: 135px;
+    height: 135px;
+    left: 252px;
+    top: 200px;
+    background-image: url('../Images/iconperfil.jpg');
+    border-radius: 322.5px;
+}
+

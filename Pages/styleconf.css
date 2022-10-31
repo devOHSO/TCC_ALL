@@ -1,0 +1,117 @@
+
+body { 
+    background-image: url('../Images/background.png');
+    background-attachment: fixed;
+    background-size: cover;
+    }
+    
+.header { 
+    background: black;
+
+    position: fixed;
+    height: 80px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between; 
+    
+    width: 100%;
+    top: 0;
+
+    left: 0;
+
+    
+}
+
+.header .headerTitle { 
+    color: #ddd; 
+    text-align: center;
+    font-family: system-ui;
+    line-height: 70px; 
+    margin-left: 20px; 
+
+}
+
+.butlogo{
+    background-color: black;
+    position: right;
+
+}
+.texto{
+    color: white;
+    position: absolute;
+    width: 200px;
+    height: 75px;
+    left: 720px;
+    top: 30px;
+    font-family: system-ui; 
+    font-size: 18px;
+}
+
+.buthome{
+    background-color: black;
+    position: absolute;
+    width: 30px;
+    height: 60px;
+    left: 1280px;
+    top: 7px;
+
+
+}
+.icon5{
+    position: left;
+
+
+}
+
+
+.smallbackground { 
+    background-color: rgba(0, 0, 0, 0.75);
+    color: white;
+    
+    
+    margin: 10%; 
+    width: 80%;
+    height: 500px; 
+    border: 1px solid black; 
+    text-align: center; 
+    font-family: system-ui; 
+    border-radius: 1em;
+}
+
+.email{
+
+    width: 25%;
+    height: 35px; 
+    border: 1px solid black; 
+    text-align: center; 
+    font-family: system-ui; 
+    border-radius: 1em;
+}
+
+.senha{
+    width: 25%;
+    height: 35px;
+    border: 1px solid black; 
+    text-align: center; 
+    font-family: system-ui; 
+    border-radius: 1em;
+}
+
+.submits{
+    width: 15%;
+    height: 35px;
+    border: 1px solid black;  
+    border-radius: 1em;
+    
+}
+
+.butvoltar{
+    background-color: black;
+    position: absolute;
+    width: 30px;
+    height: 60px;
+    left: 1350px;
+    top: 7px;
+
+
+}   

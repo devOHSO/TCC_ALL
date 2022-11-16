@@ -7,7 +7,8 @@ CREATE TABLE `askpets`.`contas`
     `email` VARCHAR(50) NOT NULL ,
     `userpassword` VARCHAR(20) NOT NULL ,
     `birthday` DATE NOT NULL ,
-    `telnumber` INT NULL ,
+    `telnumber` VARCHAR(11) NULL ,
+    `extimg` VARCHAR(4) NULL ,
     PRIMARY KEY (`iduser`),
     UNIQUE (`nickname`),
     UNIQUE (`email`),
@@ -26,6 +27,23 @@ CREATE TABLE `askpets`.`pets`
     PRIMARY KEY (`idpet`),
     FOREIGN KEY (`iduser`) REFERENCES contas(`iduser`)
 );
+CREATE TABLE `askpets`.`comunities` ( 
+    `creator` INT NOT NULL , 
+    `name` VARCHAR(50) NOT NULL , 
+    `data` DATE NOT NULL , 
+    `description` VARCHAR(255) NOT NULL , 
+    `comunityid` INT NOT NULL AUTO_INCREMENT , 
+    `extimg` VARCHAR(4) NOT NULL ,
+    PRIMARY KEY (`comunityid`),
+    FOREIGN KEY (`creator`) REFERENCES contas(`iduser`)
+);
+CREATE TABLE `askpets`.`comuuser` ( 
+    `comid` INT NOT NULL , 
+    `userid` INT NOT NULL , /*tabela de relacionamentos*/
+    `type` INT NOT NULL,
+    FOREIGN KEY (`comid`) REFERENCES comunities(`comunityid`),
+    FOREIGN KEY (`userid`) REFERENCES contas(`iduser`)
+);
 CREATE TABLE `askpets`.`posts` (
     `idpost` INT(12) NOT NULL AUTO_INCREMENT , 
     `img` BOOLEAN NOT NULL , 
@@ -39,9 +57,12 @@ CREATE TABLE `askpets`.`posts` (
     `content` TEXT NULL , 
     `title` TEXT NULL ,
     `imgext` VARCHAR(4) NOT NULL,
+    `comunity` INT NOT NULL,
     PRIMARY KEY (`idpost`),
-    FOREIGN KEY (`idpet`) REFERENCES pets(`idpet`)
+    FOREIGN KEY (`idpet`) REFERENCES pets(`idpet`),
+    FOREIGN KEY (`comunity`) REFERENCES comunities(`comunityid`)
 );
+
 CREATE TABLE `askpets`.`coments` ( 
     `iduser` INT NOT NULL , 
     `idpost` INT NOT NULL , 

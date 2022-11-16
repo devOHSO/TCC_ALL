@@ -13,7 +13,7 @@ session_start();
 
     if (mysqli_query($conn, $sql)) {
         echo "Comentario adicionado com sucesso";
-                
+        header('Location: '. '../Pages/home.php');
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }

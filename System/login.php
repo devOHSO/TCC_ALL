@@ -19,18 +19,23 @@ if (mysqli_num_rows($result) > 0) {
       
       $_SESSION["iduser"] = $row["iduser"];
       $_SESSION["idpet"] = 0;
+      $_SESSION["idcom"] = 0;
 
       $_SESSION['name'] = $row["name"];
-      echo $_SESSION['name'];
+      echo $_SESSION['name']. "<br>";
       
       $_SESSION['nickname'] = $row["nickname"];
-      echo $_SESSION['nickname'];
+      echo $_SESSION['nickname']. "<br>";
 
       $_SESSION['email'] = $row["email"];
-      echo $_SESSION['email'];
+      echo $_SESSION['email']. "<br>";
 
-      $_SESSION['vpassword'] = $row["vpassword"];
-      echo $_SESSION['vpassword'];
+      $_SESSION['userpassword'] = $row["userpassword"];
+      echo $_SESSION['userpassword']. "<br>";
+
+      $_SESSION['extimg'] = $row["extimg"];
+      echo $_SESSION['extimg']. "<br>";
+
       header('Location: '. '../Pages/home.php');
       
     }

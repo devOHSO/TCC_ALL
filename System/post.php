@@ -11,14 +11,15 @@ if (isset($_POST["inp_coments"])){
     $coments = '';
 }
 $comentsbool = false;
-$date = date("m/d/y");;
+$date = date("y/m/d");
 $idpet = $_SESSION["idpet"]; //fazer
+$idcom = $_SESSION["idcom"];
 $caption = $_POST["inp_caption"];
 $video = $_FILES["inp_video"];
 $videobool = false;
-$img = $_FILES["inp_image"];
+$img = $_FILES["inp_img"];
 $imgbool = false;
-$imgext = strtolower(substr($_FILES['inp_image']['name'],-4));
+$imgext = strtolower(substr($_FILES['inp_img']['name'],-4));
 
 if($coments == "on"){
     $comentsbool = true;
@@ -32,7 +33,7 @@ if($_FILES['inp_video']['name'] != ""){
     $videobool = 0;
 }
 
-if($_FILES['inp_image']['name'] != ""){
+if($_FILES['inp_img']['name'] != ""){
     $imgbool = 1;
 }else{
     $imgbool = 0;
@@ -41,8 +42,8 @@ if($_FILES['inp_image']['name'] != ""){
 
 include "conn.php";
 
-$sql = "INSERT INTO posts (title, content, coments, date, caption, video, img, imgext, idpet)
-VALUES ('$title', '$content', '$comentsbool', '$date', '$caption', '$videobool', '$imgbool', '$imgext', $idpet)"; /*$iduser,*/
+$sql = "INSERT INTO posts (title, content, coments, date, caption, video, img, imgext, idpet, comunity)
+VALUES ('$title', '$content', '$comentsbool', '$date', '$caption', '$videobool', '$imgbool', '$imgext', $idpet, $idcom)"; /*$iduser,*/
 
 if (mysqli_query($conn, $sql)) {
   echo "New record created successfully";
@@ -62,13 +63,15 @@ if (mysqli_num_rows($result) > 0) {
 
   $_FILES['video'] = $_FILES["inp_video"];
 
-  $_FILES['img'] = $_FILES["inp_image"];
+  $_FILES['img'] = $_FILES["inp_img"];
 
 
   include 'upimg.php';
+  upimg('Postimages', $idpost); 
   include 'upvid.php';
 
-
+  echo $idpost;
+  
   header('Location: '. '../Pages/home.php');
 } else {
   echo "Error: " . $sql . "<br>" . mysqli_error($conn);

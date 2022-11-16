@@ -6,7 +6,7 @@ $idpet = $_SESSION["idpet"];
 $idcomunity = $_SESSION["idcom"]; 
 
 
-$sql = "SELECT * FROM posts WHERE comunity='$idcomunity' ORDER BY idpost DESC";
+$sql = "SELECT * FROM posts WHERE idpet='$idpet' and comunity='$idcomunity' ORDER BY idpost DESC";
 $result = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($result) > 0) {

@@ -16,70 +16,47 @@ if($_SESSION["iduser"] == null){
 </head>
 <body>
 
-    <div class="divflexc">
+<div class="divflexc">
     
     <div class="header">
         <div class="divflexr">
-            <h1>Home</h1>
+        <a href="#"><button class="butlogo"> <img class="logo" src="../Images/logo.png"  width=90 height=70></button></a>
+        <a href="home.php"><button class="butlogo"> <img class="logo" src="../Images/Iconhome.png"  width=70 height=70></button></a>
+        <div class="divflexr">
+            <h1 class="title">Inicio</h1>
 
-            <a href="perfil.php"><button class="butvoltar" type="button"></button></a>
         </div>
+        <a href="perfil.php"><button class="butlogo"> <img class="logo" src="../Images/iconperfil.png"  width=70 height=70></button></a>
+        <a href="createcomunity.php"><button class="butlogo"> <img class="logo" src="../Images/iconpata.png"  width=70 height=70></button></a>
+        </div>
+
     </div>
     <div class="divflexr">
-    <div class="petgrid">
+
+
     <?php
     
-    include "../System/conn.php";
-
-    $iduser = $_SESSION["iduser"];
-    $sql = "SELECT * FROM pets WHERE iduser= '$iduser'";
-    $result = mysqli_query($conn, $sql);
-
-    if (mysqli_num_rows($result) > 0) {
-        // output data of each row
-        while($row = mysqli_fetch_assoc($result)) {
-            
-            if ($_SESSION["idpet"] == 0){
-                $_SESSION["idpet"] = 1;
-            }
-            
-            ?>    
-
-            <form action="../System/setpet.php" method="POST" class="pet_form">
-                <?php
-                if(isset($row["extimg"])){
-                ?>    
-                <div style="background-image: url(../Petimages/<?php echo $row["idpet"]. $row["extimg"]; ?>);" class="pet_img">
-                    <input type="submit" class="pet_btn" name="stpt_btn" value="<?php echo $row["name"]; ?>">
-                </div>
-                <?php
-                }else{
-                ?>
-                <div style="background-color: grey;" class="pet_img">
-                    <input type="submit" class="pet_btn" name="stpt_btn" value="<?php echo $row["name"]; ?>">
-                </div>
-                <?php
-                }
-                ?>
-
-            </form>
-        
-            <?php
-        }
-    }
-        ?>
-    </div>
-    <div class="mediumbackground">
+    include '../Components/petgrid.php';
+    
+    ?>
     
 
+    <div class="mediumbackground">
+    
         <a href="createpost.php">Novo Post</a><br>
-
 
     <?php
         include '../System/getposts.php';
     ?><br>
     
     </div>
+
+    <?php
+    
+    include '../Components/comunitygrid.php';
+
+    ?>
+
 </div>
 </div>
 </body>

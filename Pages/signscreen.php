@@ -16,9 +16,9 @@ session_start();
 <body>
     <div class="smallbackground">
         <h1>cadastro</h1><br>
-        <form method="post" action="../System/sign.php">
+        <form method="post" action="../System/sign.php" enctype="multipart/form-data">
             <label>Foto de usuario:</label><br>
-            <input type="file" name="inp_foto" id="inp_foto" class="inputs" onchange="previewImagem()">
+            <input type="file" name="inp_img" id="inp_img" class="inputs" onchange="previewImagem()">
 			<img style="width: 150px; height: 150px; border-radius: 100px;" class="inp_foto"><br><br>
 		
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -72,14 +72,8 @@ session_start();
             ?>
             
             <label>Telefone:</label><br>
-            <input type="tel" name="inp_tel" id="inp_tel" class="inputs" required placeholder="(xx) xxxxx-xxxx" maxlength="11" minlength="11"><br><br>
-            <?php
-                if(!empty($_SESSION['vazio_telefone'])){
-                    echo $_SESSION['vazio_telefone'];
-                    unset ($_SESSION['vazio_telefone']);
-                }
-
-            ?>
+            <input type="tel" name="inp_tel" id="inp_tel" class="inputs" placeholder="(xx) xxxxx-xxxx" maxlength="11" minlength="11"><br><br>
+            
             <label>Data de nascimento:</label><br>
             <input type="date" name="inp_date" id="inp_date" class="inputs" required><br><br>
             <?php

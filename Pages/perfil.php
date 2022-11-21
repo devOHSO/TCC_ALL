@@ -3,6 +3,7 @@ include '../System/conn.php';
 
 session_start();
 
+$_SESSION["previouspage"] = 'perfil.php';
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -11,57 +12,72 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perfil</title>
-    <link rel="stylesheet" href="styleperfil.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="../style.css">
 </head>
 <body>
 
-    
+    <div class="divflexc">
 
-    <header class="header">
-        <a href="#"><button class="butlogo" type="button"> <img class="logo" src="../Images/logo.png"  width=90 height=70></button></a>
-            <h1 class="texto">Perfil</h1>
-        <a href="home.php"><button class="buthome" type="button"> <img class="Iconhome" src="../Images/Iconhome.png"  width=85 height=75></button></a>
-       
-   
-        <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
-              <img class="icon5" src="../Images/iconpata.png"  width=82 height=70>
-              </a>
-              <div class="dropdown-menu">
-              <a class="dropdown-item" href="pets.php">Seus Pets</a>
-                <a class="dropdown-item" href="../Pages/conf.php">Configurações</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="../System/sair.php">sair</a>
-              </div>
-            </li>
-   
-            
-        </span>
-    </header>
-
-            
-        <div class="smallbackground">
-
-
-
-            <a href="edit.php"><button class="butedicao" type="button"><img class="edicao" src="../Images/iconedicao.png"  width=50 height=50> </button></a>
-          
-
-            <div class="perfil"></div>
-            
-            <label class="usuario"><?php echo $_SESSION['name']; ?></label>
-                <label class="usuario2">@<?php echo $_SESSION['nickname']; ?></label>
-                <a href="#"><button class="butcomun" type="button"><h1 class="com">X Comunidades</h1></button></a>
-
+    <div class="header">
+        <div class="divflexr">
+        <a href="#"><button class="butlogo"> <img class="logo" src="../Images/logo.png"  width=90 height=70></button></a>
+        <a href="home.php"><button class="butlogo"> <img class="logo" src="../Images/Iconhome.png"  width=70 height=70></button></a>
+        <div class="divflexr">
+            <h1 class="title">Perfil</h1>
+        
         </div>
-     
+        <a href="perfil.php"><button class="butlogo"> <img class="logo" src="../Images/iconperfil.png"  width=70 height=70></button></a>
+        <a href="createcomunity.php"><button class="butlogo"> <img class="logo" src="../Images/iconpata.png"  width=70 height=70></button></a>
+        </div>
+    </div>
+
+    <div class="divflexr">
+    <?php
+    
+    include '../Components/petgrid.php';
+    
+    ?>
+
+            
+        <div class="mediumbackground">
+            <div style="display: grid;"></div>
+
+            <a href="edit.php" class="btnedit"><button class="butlogo"> <img class="logo" src="../Images/iconedicao.png"  width=60 height=60></button></a>
+            <?php
+            if ($_SESSION["extimg"] != ''){
+            ?>
+
+            <div class="perfil">
+                <img src='../UserImages/<?php echo $_SESSION['nickname'] . $_SESSION['extimg']; ?>'  alt="" width="135px" height="135px" class="perfilimg">
+            </div>
+            
+            <?php
+            }else{
+            ?>
+
+            <div class="perfil">
+                <img src='../Images/iconperfil.png'  alt="" width="135px" height="135px" class="perfilimg">
+            </div>
+
+            <?php
+            }
+            ?>
+
+                <h2><?php echo $_SESSION['name']; ?></h2><br>
+                <h3>@<?php echo $_SESSION['nickname']; ?></h3><br>
+                <button class="butcomun" type="button"><h1 class="com">X Comunidades</h1></button><br><br>
+                <a href="../System/unlogin.php">Sair</a>
+                <?php
+                include '../System/getpostsperfil.php';
+                ?>
+        </div>
+
+        <?php
+        include '../Components/comunitygrid.php';
+        ?>
+</div>
+</div>
 
 
-
-
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
 </body>
 </html>

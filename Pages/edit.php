@@ -4,8 +4,8 @@ include_once("../System/conn.php");
 session_start();
 
 
-$id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
-$result_usuario = "SELECT * FROM contas WHERE id = '$id'";
+$id = filter_input(INPUT_GET, 'iduser', FILTER_SANITIZE_NUMBER_INT);
+$result_usuario = "SELECT * FROM contas WHERE iduser = '$id'";
 $resultado_usuario = mysqli_query($conn, $result_usuario);
 
 
@@ -17,7 +17,7 @@ $resultado_usuario = mysqli_query($conn, $result_usuario);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edição perfil</title>
-    <link rel="stylesheet" href="styleedit.css">
+    <link rel="stylesheet" href="../style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 </head>
 <body>
@@ -33,10 +33,14 @@ $resultado_usuario = mysqli_query($conn, $result_usuario);
         </span>
     </header>
    
-        <div class="smallbackground">
+        <div class="box1">
 
         
-        
+
+        <form method="POST" action="../System/proc_edit.php" enctype="multipart/form-data">
+
+
+
         <input type="file" name="input_user" id="input_user" class="input_user" onchange="previewImagem()"><br><br>
         <div class="perfil" ><img name="img_user" id="img_user" style="width: 135px; height: 135px;" class="img_user"></div>
 
@@ -60,10 +64,8 @@ $resultado_usuario = mysqli_query($conn, $result_usuario);
 				}
 			}
 		</script>
-    
 
 
-        <form method="POST" action="../System/proc_edit.php">
 
 			<input type="hidden" name="inp_id" value='1'>
 

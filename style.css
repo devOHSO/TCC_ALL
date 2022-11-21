@@ -9,6 +9,7 @@ body{
     align-items: center;
     
     margin: 0px;
+    
 
 }
 .divmaxhei{
@@ -40,7 +41,7 @@ body{
     width: 70%;
     border-radius: 10px;
     border: 2px outset rgb(80, 80, 80);
-    margin-right: 15%;
+    
     margin-top: 30px;
 
 }
@@ -67,7 +68,27 @@ div.petgrid{
     height: 100vh;
     
 }
+div.comunitygrid{
+    background-color: rgb(51, 51, 51);
+    margin: 0px;
+    color: aliceblue;
+    width: 10%;
+    font-family: system-ui;
+    position: sticky;
+    top: 0;
+    margin-left: 5%;
+    z-index: 50;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    
+}
 form.pet_form{
+    width: 100%;
+    display: flex;  
+    justify-content: center;
+}
+form.com_form{
     width: 100%;
     display: flex;  
     justify-content: center;
@@ -105,6 +126,7 @@ h1{
     display: flex;
     flex-direction: row;
     justify-content: center;
+    align-content: center;
     padding: 0px;
     margin: 0px;
     width: 100%;
@@ -121,8 +143,26 @@ h1{
     background-color: rgba(0, 0, 0, 0);
     color: aliceblue;
     font-family: system-ui;
+    cursor: pointer;
 }
 .pet_img{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin: 10px;
+    background-size: cover;
+}
+.com_btn{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 0px;
+    background-color: rgba(0, 0, 0, 0);
+    color: aliceblue;
+    font-family: system-ui;
+    cursor: pointer;
+}
+.com_img{
     width: 80px;
     height: 80px;
     border-radius: 50%;
@@ -133,7 +173,7 @@ label{
     font-size: 20px;
 }
 
-h3, h4{
+h1, h2, h3, h4, h5, h6{
     margin: 0px;
 }
 div.bar{
@@ -144,4 +184,105 @@ div.bar{
 }
 #numpost{
     display: none;
+}
+.butvoltar{
+    background-image: url(Images/iconperfil.png);
+}
+.perfilimg{
+    line-height: 0px;
+    border-radius: 50%;
+}
+.butlogo{
+    background-color: black;
+    border-radius: 50%;
+}
+.btnedit{
+    position: absolute;
+    right: 13%;
+    top: 14%;
+
+}
+.title{
+    margin-right: 20px;
+}
+a, a:visited, a:hover{
+    color:aliceblue;
+
+}
+
+.box1 { 
+    background-color: rgba(0, 0, 0, 0.75);
+    color: white;
+    
+    
+    margin: 10%; 
+    width: 80%;
+    height: 500px; 
+    border: 1px solid black; 
+    text-align: center; 
+    font-family: system-ui; 
+    border-radius: 1em;
+}
+
+.texto{
+    color: white;
+}
+.butvoltar{
+    background-image: url(Images/iconperfil.png);
+    background-color: black;
+
+}
+
+
+.perfilimg{
+    line-height: 0px;
+    border-radius: 5%;
+}
+.header { 
+    background: black;
+
+    position: fixed;
+    height: 80px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between; 
+    
+    width: 100%;
+    top: 0;
+
+    left: 0;
+
+}
+.btnedit{
+    position: absolute;
+    right: 20%;
+    top: 14%;
+    width: 65px;
+    height: 65px;
+}
+.img_user{
+    border-radius: 100px;
+
+}
+
+.name{
+    margin-top: 20px; 
+    border: 1px solid rgba(255, 255, 255, 0); 
+    text-align: center; 
+
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.708);
+    font-size: 20px;
+
+}
+
+.nickname{
+
+    border: 1px solid rgba(255, 255, 255, 0); 
+    background-color: rgba(255, 255, 255, 0.708);
+    text-align: center; 
+ 
+    border-radius: 15px;
+          
+    font-size: 20px;
 }

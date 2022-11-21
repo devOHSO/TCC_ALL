@@ -15,7 +15,7 @@ if (mysqli_num_rows($result) > 0) {
     //echo "id: " . $row["id"]. " - Name: " . $row["firstname"]. " " . $row["lastname"]. "<br>";
 
     $_SESSION["idpet"]= $row["idpet"];
-    header('Location: '. '../Pages/home.php');
+    header('Location: '. '../Pages/' . $_SESSION["previouspage"]);
   }
 } else {
   echo "An error ocurred";

@@ -8,6 +8,7 @@ $email = $_POST["inp_email"];//verificar
 $telefone = $_POST["inp_tel"];//verificar
 $nascimento = $_POST["inp_date"];
 $vpassword = $_POST["inp_password"];
+$ext = strtolower(substr($_FILES['inp_img']['name'],-4));
 
 include 'conn.php';
 
@@ -36,13 +37,6 @@ if (($email) ==  null){
             ";  
         }
 
-if (($telefone) ==  null){
-        $_SESSION['vazio_telefone'] = "Campo telefone é obrigatório";
-        $url = 'http://localhost/tcc/Pages/signscreen.php';
-            echo "
-            <META HTTP-EQUIV=REFRESH CONTENT = 'O;URL=form'>
-            ";     
-        }
 if (($nascimento) ==  null){
        $_SESSION['vazio_nascimento'] = "Campo é obrigatório";
         $url = 'http://localhost/tcc/Pages/signscreen.php';
@@ -72,7 +66,7 @@ if (mysqli_num_rows($result) > 0) {
 
     $sql = "SELECT * FROM contas WHERE email='$email'";
     $result = mysqli_query($conn, $sql);
-
+    
     if (mysqli_num_rows($result) > 0) {
         // output data of each row
         while($row = mysqli_fetch_assoc($result)) {
@@ -82,35 +76,25 @@ if (mysqli_num_rows($result) > 0) {
     
         }
     } else {
-    
-        $sql = "SELECT * FROM contas WHERE telnumber='$telefone'";
-        $result = mysqli_query($conn, $sql);
-
-        if (mysqli_num_rows($result) > 0) {
-            // output data of each row
-            while($row = mysqli_fetch_assoc($result)) {
-    
-            //!telefone sendo usado
-            echo "<div><script>alert('telefone ja em uso');</script> <a href='../Pages/signscreen.php'>VOLTAR</a> </div>";
-                
-            }
-        } else {
-
-
             
 
-            //!isso vai acontecer se tudo for verificado certo!
-            $sql = "INSERT INTO contas (name, nickname, email, userpassword, birthday, telnumber)
-            VALUES ('$name', '$nickname', '$email', '$vpassword', '$nascimento', '$telefone')";
+        //!isso vai acontecer se tudo for verificado certo!
+        $sql = "INSERT INTO contas (name, nickname, email, userpassword, birthday, telnumber, extimg)
+        VALUES ('$name', '$nickname', '$email', '$vpassword', '$nascimento', '$telefone', '$ext')";
 
-            if (mysqli_query($conn, $sql)) {
-                echo $password;
-                echo "Conta criada com sucesso <a href='../index.php'>Entrar</a>";
+        if (mysqli_query($conn, $sql)) {
+
+            include 'upimg.php';
+
+            upimg('UserImages', $nickname); 
+
+            echo "Conta criada com sucesso <a href='../index.php'>Entrar</a>";
+            header('Location: '. '../index.php');
                         
-            } else {
-                echo "Error: " . $sql . "<br>" . $conn->error;
-            }
+        } else {
+            echo "Error: " . $sql . "<br>" . $conn->error;
         }
+        
     }   
 }
 
